@@ -1,0 +1,35 @@
+*mash.txt*  Differently highlight search under cursor for better clarity
+                                                *mash-author*
+Author:   Barry Arthur <barry dot arthur at gmail dot com>
+
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                           *mash*
+
+Mash is a motion activated (lol - er, I mean, when you press n/N to
+jump to next search match) current search match highlighter. Breaking
+that down for you, it highlights the match under the cursor
+differently to all the other matches (if you have :set hlsearch
+activated). If you don't use hlsearch, then it will still highlight
+the current match.
+
+CONFIGURATION                            *mash-configuration*
+
+Mash currently uses the built in Search and IncSearch highlight
+groups. Change these if you want to use different colours or
+attributes. For example, if you like the limelight:
+>
+  hi Search term=reverse ctermfg=White ctermbg=DarkGreen guifg=White guibg=DarkGreen
+  hi IncSearch term=bold cterm=bold ctermfg=Black ctermbg=DarkGreen gui=bold guifg=LightYellow guibg=DarkGreen
+>
+
+ISSUES                                          *mash-issues*
+
+Mash fails if the search uses an offset other than start-of-pattern,
+like:
+>
+     /foo/e
+<
+
+
+ vim:tw=78:ts=8:ft=help:norl:

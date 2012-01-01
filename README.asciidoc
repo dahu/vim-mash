@@ -1,0 +1,6 @@
+M·A·S·H
+=======
+
+__Motion Activated Search Highlighter__
+
+Differently highlight search under cursor for better clarity.
