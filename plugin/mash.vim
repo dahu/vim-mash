@@ -13,9 +13,10 @@
 "
 " Licensed under the same terms as Vim itself.
 " ============================================================================
-let s:Mash_version = '0.0.1'
+let s:Mash_version = '0.0.2'
 
 " History:{{{1
+" v.0.0.2 honour ignorecase option  - Stanislav Seletskiy
 " v.0.0.1 initial release:
 " * Highlights current match under cursor. Uses IncSearch highlight group.
 " * Issues:
@@ -31,7 +32,7 @@ function! Mash()
   if exists('b:mash_search_item')
     call matchdelete(b:mash_search_item)
   endif
-  let b:mash_search_item = matchadd('IncSearch', '\%#'.@/, 1)
+  let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . '\%#'.@/, 1)
 endfunction
 
 " Maps:{{{1

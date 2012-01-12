@@ -23,6 +23,10 @@ attributes. For example, if you like the limelight:
   hi IncSearch term=bold cterm=bold ctermfg=Black ctermbg=DarkGreen gui=bold guifg=LightYellow guibg=DarkGreen
 >
 
+IGNORECASE~
+
+Mash respects the current 'ignorecase' option setting.
+
 ISSUES                                          *mash-issues*
 
 Mash fails if the search uses an offset other than start-of-pattern,
