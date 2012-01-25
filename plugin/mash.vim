@@ -30,7 +30,10 @@ set cpo&vim
 " Funcs:{{{1
 function! Mash()
   if exists('b:mash_search_item')
-    call matchdelete(b:mash_search_item)
+    try
+      call matchdelete(b:mash_search_item)
+    catch /^Vim\%((\a\+)\)\=:E/   " ignore E802/E803
+    endtry
   endif
   let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . '\%#'.@/, 1)
 endfunction
@@ -38,6 +41,8 @@ endfunction
 " Maps:{{{1
 nnoremap <silent> n n:call Mash()<CR>
 nnoremap <silent> N N:call Mash()<CR>
+nnoremap <silent> # #:call Mash()<CR>
+nnoremap <silent> * *:call Mash()<CR>
 
 " Teardown:{{{1
 "reset &cpo back to users setting
