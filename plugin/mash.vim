@@ -27,15 +27,28 @@ let s:Mash_version = '0.0.2'
 let s:old_cpo = &cpo
 set cpo&vim
 
+" grey fog of war
+try | silent hi MashFOW | catch /^Vim\%((\a\+)\)\=:E411/ | hi MashFOW ctermfg=grey ctermbg=none guifg=grey guibg=none | endtry
+
+" Options
+" Mash FOW enabled?:{{{1
+let b:mash_use_fow = 0
+
 " Funcs:{{{1
 function! Mash()
   if exists('b:mash_search_item')
     try
       call matchdelete(b:mash_search_item)
+      call matchdelete(b:mash_fow_item)
     catch /^Vim\%((\a\+)\)\=:E/   " ignore E802/E803
     endtry
   endif
-  let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . '\%#'.@/, 1)
+  if(b:mash_use_fow)
+    let b:mash_fow_item = matchadd('MashFOW', '.*', 1)
+    let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . @/, 2)
+  else
+    let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . '\%#'.@/, 2)
+  endif
 endfunction
 
 " Maps:{{{1
