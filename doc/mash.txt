@@ -6,22 +6,51 @@ License: Same terms as Vim itself (see |license|)
 
 INTRODUCTION                                           *mash*
 
-Mash is a motion activated (lol - er, I mean, when you press n/N to
-jump to next search match) current search match highlighter. Breaking
-that down for you, it highlights the match under the cursor
-differently to all the other matches (if you have :set hlsearch
-activated). If you don't use hlsearch, then it will still highlight
+Mash is a motion activated (lol - er, I mean, when you press n/N/#/*) current
+search match highlighter. Breaking that down for you, it highlights the match
+under the cursor differently to all the other matches (if you have :set
+hlsearch activated). If you don't use hlsearch, then it will still highlight
 the current match.
+
+                                               *mash-unmash*
+
+Use CTRL-L to clear the current mash highlighting. This can be customised in
+|mash-key-maps|.
+
+                                                  *mash-fow*
+
+Mash also provides a Fog of War mode where all non-matched text is greyed out.
+Activate the FOW mode with <leader>mf and disable it with <leader>mF. This can be customised in  |mash-key-maps|.
 
 CONFIGURATION                            *mash-configuration*
 
-Mash currently uses the built in Search and IncSearch highlight
-groups. Change these if you want to use different colours or
-attributes. For example, if you like the limelight:
+Mash currently uses the built in Search and IncSearch highlight groups. Change
+these if you want to use different colours or attributes. For example, if you
+like the limelight:
 >
-  hi Search term=reverse ctermfg=White ctermbg=DarkGreen guifg=White guibg=DarkGreen
-  hi IncSearch term=bold cterm=bold ctermfg=Black ctermbg=DarkGreen gui=bold guifg=LightYellow guibg=DarkGreen
+  hi Search term=reverse ctermfg=White ctermbg=DarkGreen guifg=White
+  guibg=DarkGreen hi IncSearch term=bold cterm=bold ctermfg=Black
+  ctermbg=DarkGreen gui=bold guifg=LightYellow guibg=DarkGreen
+<
+If you use a dark-grey background, a black FOW is near invisible:
 >
+  hi MashFOW ctermfg=black ctermbg=none guifg=black guibg=none
+<
+
+MASH KEY MAPS                                *mash-key-maps*
+
+You can customise the actual key used to enable and disable Fog of War mode.
+For example, to map the |mash-fow| enable key (which is, by default, mapped to
+<leader>mf) to <leader>f, put the following in your ~/.vimrc :
+>
+  nmap <leader>f <Plug>MashFOWEnable
+<
+The following map targets are available for remapping in your ~/.vimrc :
+>
+  <Plug>MashFOWEnable    defaults to <leader>mf
+  <Plug>MashFOWDisable   defaults to <leader>mF
+  <Plug>MashUnMash       defaults to <c-l>
+<
 
 IGNORECASE~
 
