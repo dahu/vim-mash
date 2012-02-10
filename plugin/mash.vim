@@ -43,7 +43,7 @@ function! Mash()
     catch /^Vim\%((\a\+)\)\=:E/   " ignore E802/E803
     endtry
   endif
-  if(b:mash_use_fow)
+  if exists('b:mash_use_fow') && b:mash_use_fow
     let b:mash_fow_item = matchadd('MashFOW', '.*', 1)
     let b:mash_search_item = matchadd('IncSearch',  (&ignorecase ? '\c' : '') . @/, 2)
   else
