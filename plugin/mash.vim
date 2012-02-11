@@ -33,7 +33,7 @@ let s:old_cpo = &cpo
 set cpo&vim
 
 " grey fog of war
-try | silent hi MashFOW | catch /^Vim\%((\a\+)\)\=:E411/ | hi MashFOW ctermfg=grey ctermbg=none guifg=grey guibg=none | endtry
+try | silent hi MashFOW | catch /^Vim\%((\a\+)\)\=:E411/ | hi MashFOW ctermfg=grey ctermbg=NONE guifg=grey guibg=NONE | endtry
 
 " Options
 " Mash FOW enabled?:{{{1
