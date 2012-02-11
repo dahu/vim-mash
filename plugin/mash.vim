@@ -70,6 +70,8 @@ nnoremap <silent> n n:call <SID>Mash()<CR>
 nnoremap <silent> N N:call <SID>Mash()<CR>
 nnoremap <silent> # #:call <SID>Mash()<CR>
 nnoremap <silent> * *:call <SID>Mash()<CR>
+nnoremap <silent> g# g#:call <SID>Mash()<CR>
+nnoremap <silent> g* g*:call <SID>Mash()<CR>
 
 " Customisable Maps
 nnoremap <silent> <Plug>MashFOWEnable  :let b:mash_use_fow = 1<CR>:call <SID>Mash()<CR>
