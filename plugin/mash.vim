@@ -60,8 +60,6 @@ function! s:UnMash()
     call matchdelete(b:mash_fow_item)
   catch /^Vim\%((\a\+)\)\=:E/
   endtry
-  noh
-  redraw
 endfunction
 
 " Maps:{{{1
@@ -76,7 +74,7 @@ nnoremap <silent> g* g*:call <SID>Mash()<CR>
 " Customisable Maps
 nnoremap <silent> <Plug>MashFOWEnable  :let b:mash_use_fow = 1<CR>:call <SID>Mash()<CR>
 nnoremap <silent> <Plug>MashFOWDisable :let b:mash_use_fow = 0<CR>:call <SID>Mash()<CR>
-nnoremap <silent> <Plug>MashUnMash     :call <SID>UnMash()<CR>
+nnoremap <silent> <Plug>MashUnMash     :call <SID>UnMash()<CR>:noh<cr>
 
 if !hasmapto('<Plug>MashFOWEnable')
   nmap <leader>mf <Plug>MashFOWEnable
