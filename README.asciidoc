@@ -4,3 +4,7 @@ M·A·S·H
 __Motion Activated Search Highlighter__
 
 Differently highlight search under cursor for better clarity.
+
+NOTE: M.A.S.H has now been merged into
+http://https://github.com/dahu/SearchParty[SearchParty]. This will be
+the final release of M.A.S.H. as a standalone plugin.
